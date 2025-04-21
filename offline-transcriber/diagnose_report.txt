@@ -1,0 +1,54 @@
+# Offline-Transcriber: Diagnose-Bericht
+
+## Hauptprobleme
+
+1. **FFmpeg ist nicht installiert**
+   - FFmpeg wird benötigt, um Audiodateien zu verarbeiten
+   - Ohne FFmpeg können keine Audiodateien geladen oder verarbeitet werden
+
+2. **Audiodatei wird nicht gefunden**
+   - Die Audiodatei konnte im angegebenen Pfad nicht gefunden werden
+   - Es fehlt ein klarer Speicherort für Audiodateien
+
+## Lösungsschritte
+
+### 1. FFmpeg installieren
+
+A. **Windows**:
+   - Lade FFmpeg von https://ffmpeg.org/download.html herunter
+   - Entpacke die ZIP-Datei und lege sie im Verzeichnis C:\ffmpeg ab
+   - Füge C:\ffmpeg\bin zur PATH-Umgebungsvariable hinzu
+   - Starte PowerShell neu und teste mit `ffmpeg -version`
+
+B. **macOS**:
+   - Installiere mit: `brew install ffmpeg`
+
+C. **Linux**:
+   - Installiere mit: `sudo apt install ffmpeg`
+
+### 2. Audiodatei in den "audio"-Ordner kopieren
+
+```
+copy "C:\Users\Hussein\Desktop\Holz.m4a" audio\
+```
+
+### 3. Transkription ausführen
+
+```
+transcribe audio/Holz.m4a
+```
+
+## Erwartetes Ergebnis
+
+Nach erfolgreicher Installation von FFmpeg und Kopieren der Audiodatei sollte der Transkriptionsbefehl eine Textdatei mit dem Transkript erzeugen:
+
+```
+audio/Holz.txt
+```
+
+## Zusätzliche Hilfe
+
+Bei weiteren Problemen:
+- Siehe manual_ffmpeg_install.md für detaillierte Anweisungen zur FFmpeg-Installation
+- Überprüfe die README.md für weitere Nutzungshinweise
+- Stelle sicher, dass alle Python-Abhängigkeiten installiert sind: numpy, pydub, openai-whisper, tqdm 
